@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :old_salts
 
-  resources :old_salts
+  resources :old_salts, only: [:show]
 
   root 'old_salts#index'
 end
