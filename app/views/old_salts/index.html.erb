@@ -1,0 +1,21 @@
+<h1>Old-Salts</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+
+  <% @old_salts.each do |oldsalt| %>
+    <tr>
+      <td><%= render_profile_picutre(oldsalt) %></td>
+      <td><%= oldsalt.full_name %></td>
+      <td><%= oldsalt.email %></td>
+      <td><%= link_to 'view profile', oldsalt %></td>
+    </tr>
+  <% end %>
+</table>
+<hr>
+<%= paginate @old_salts %>
+<%= page_entries_info @old_salts %>
