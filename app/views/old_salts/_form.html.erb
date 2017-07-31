@@ -1,0 +1,22 @@
+<%= form_for current_old_salt do |f| %>
+
+  <%= render 'errors' %>
+  <div><%= render_profile_picutre(current_old_salt) %></div>
+  <div><%= f.file_field :profile_picture, accept: 'iamge/jpeg' %></div>
+  <div>
+    <%= f.label "first Name" %>
+    <br/>
+    <%= f.text_field :first_name %>
+  </div>
+  <div>
+    <%= f.label "Last Name" %>
+    <br/>
+    <%= f.text_field :last_name %>
+  </div>
+  <div>
+    <%= f.label "Phone Number" %>
+    <br/>
+    <%= f.text_field :phone_no %>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>
