@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727112542) do
+ActiveRecord::Schema.define(version: 20170731055537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20170727112542) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.json "profile_picture"
     t.index ["email"], name: "index_old_salts_on_email", unique: true
     t.index ["invitation_token"], name: "index_old_salts_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_old_salts_on_invitations_count"
