@@ -1,0 +1,12 @@
+<ul>
+  <li>
+    <% if old_salt_signed_in? %>
+      <%= link_to('Logout', destroy_old_salt_session_path, method: :delete) %>
+      <%= link_to 'Edit Profile', edit_old_salt_path(current_old_salt) %>
+      <%= link_to 'View Profile', old_salt_path(current_old_salt) %>
+    <% else %>
+      <%= link_to('Login', old_salt_session_path)  %>
+    <% end %>
+    <%= link_to 'View All Old Salts', old_salts_path %>
+  </li>
+</ul>

@@ -10,6 +10,7 @@
 
   <body>
 
+    <%= render 'devise/old_salts/links' %>
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
