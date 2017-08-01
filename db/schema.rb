@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731055537) do
+ActiveRecord::Schema.define(version: 20170801060006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,17 @@ ActiveRecord::Schema.define(version: 20170731055537) do
     t.index ["invited_by_id"], name: "index_old_salts_on_invited_by_id"
     t.index ["invited_by_type", "invited_by_id"], name: "index_old_salts_on_invited_by_type_and_invited_by_id"
     t.index ["reset_password_token"], name: "index_old_salts_on_reset_password_token", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "date_of_bith"
+    t.string "phone_no"
+    t.integer "user_type"
+    t.json "profile_picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
