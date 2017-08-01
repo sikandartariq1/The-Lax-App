@@ -1,0 +1,21 @@
+<h1>General Users</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= render_profile_picutre(user) %></td>
+      <td><%= user.full_name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'view profile', user %></td>
+    </tr>
+  <% end %>
+</table>
+<hr>
+<%= paginate @users %>
+<%= page_entries_info @users %>
