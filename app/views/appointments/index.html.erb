@@ -1,17 +1,6 @@
-<h1>Appointments</h1>
 
-<table>
-  <tr>
-    <th>User Name</th>
-    <th>User Type</th>
-    <th>Old Salt Name</th>
-    <th>Requested Date</th>
-    <th>Type</th>
-    <th>Status</th>
-  </tr>
-  <%= render @appointments %>
-</table>
-
-<hr>
-<%= paginate @appointments %>
-<%= page_entries_info @appointments %>
+<% if user_signed_in? %>
+  <%= render 'user_appointments'%>
+<% else %>
+  <%= render 'old_salt_appointments'%>
+<% end %>

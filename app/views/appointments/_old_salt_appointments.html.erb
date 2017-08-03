@@ -1,0 +1,19 @@
+<h1>Appointments</h1>
+
+<table class="table table-striped table-border">
+  <tr>
+    <th>User Name</th>
+    <th>User Type</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Location</th>
+    <th>Type</th>
+    <th>Status</th>
+    <th colspan="3">Actions</th>
+  </tr>
+  <%= render partial: 'old_salt_appointment', collection: @appointments, as: :appointment %>
+</table>
+
+<hr>
+<%= paginate @appointments %>
+<%= page_entries_info @appointments %>
