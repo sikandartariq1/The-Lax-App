@@ -47,10 +47,12 @@ ActiveRecord::Schema.define(version: 20170802072834) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.integer "request_status", default: 0
+    t.integer "status", default: 0
     t.integer "request_type"
-    t.text "request_note"
+    t.text "note"
     t.date "requested_date"
+    t.time "requested_time"
+    t.string "location"
     t.bigint "user_id"
     t.bigint "old_salt_id"
     t.datetime "created_at", null: false
