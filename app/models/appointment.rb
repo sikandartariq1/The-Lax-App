@@ -14,4 +14,6 @@ class Appointment < ApplicationRecord
     coaching_training: 2,
   }
 
+  validates :requested_date, :request_type, :requested_time, :location, :user, :old_salt, presence: :true
+
 end
