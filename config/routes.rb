@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :old_salts
 
   resources :old_salts, only: [:index, :show, :edit, :update] do
-    resources :appointments, only: [:index, :show]
+    resources :appointments, only: [:index, :show, :new, :create]
   end
 
   resources :users, only: [:index, :show, :edit, :update] do

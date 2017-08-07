@@ -1,0 +1,45 @@
+<%= form_for [@old_salt, @appointment] do |f| %>
+
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@appointment.errors.count, "error") %> prohibited
+        appointment request from being sent:
+      </h2>
+      <ul>
+        <% @appointment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :requested_date, "Apointment Date" %><br>
+    <%= f.date_field :requested_date, required: :true %>
+  </div>
+  <div>
+    <%= f.label :requested_time, "Apointment Time" %><br>
+    <%= f.time_select :requested_time, {ampm: :true}, required: :true %>
+  </div>
+  <div>
+    <%= f.label :location %><br>
+    <%= f.text_field :location, required: :true %>
+  </div>
+  <div>
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </div>
+  <div>
+    <%= f.label :request_type %><br>
+    <%= f.radio_button(:request_type, :player_analysis, required: :true, id: :appointment_player_analysis) %>
+    <%= f.label (:player_analysis) %>
+    <%= f.radio_button(:request_type, :private_training, id: :appointment_private_training) %>
+    <%= f.label (:private_training) %>
+    <%= f.radio_button(:request_type, :coaching_training, id: :appointment_coaching_training) %>
+    <%= f.label(:coaching_training) %>
+  </div>
+
+  <%= f.submit 'Send' %>
+
+<% end %>

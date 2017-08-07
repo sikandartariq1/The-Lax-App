@@ -13,6 +13,9 @@
       <td><%= oldsalt.full_name %></td>
       <td><%= oldsalt.email %></td>
       <td><%= link_to 'view profile', oldsalt %></td>
+      <% unless old_salt_signed_in? %>
+        <td><%= link_to 'Send Request', new_old_salt_appointment_path(oldsalt) %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
