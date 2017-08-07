@@ -5,5 +5,5 @@
   <td><%= appointment.location %></td>
   <td><%= appointment.request_type.titleize %></td>
   <td><%= appointment.status %></td>
-  <td><%= link_to "Show", user_appointment_path(current_user,appointment) %></td>
+  <td><%= link_to "Show", [current_user,appointment] %></td>
 </tr>

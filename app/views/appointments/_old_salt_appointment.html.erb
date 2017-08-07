@@ -6,5 +6,9 @@
   <td><%= appointment.location %></td>
   <td><%= appointment.request_type.titleize %></td>
   <td><%= appointment.status %></td>
-  <td><%= link_to "Show", old_salt_appointment_path(current_old_salt,appointment) %></td>
+  <td><%= link_to "Show", [current_old_salt, appointment] %></td>
+  <% if appointment.pending? %>
+    <td><%= link_to "Accept", edit_old_salt_appointment_path(current_old_salt, appointment, status: :accepted) %></td>
+    <td><%= link_to "Reject", edit_old_salt_appointment_path(current_old_salt, appointment, status: :rejected) %></td>
+    <% end %>
 </tr>
