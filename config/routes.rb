@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update] do
     resources :appointments, only: [:index, :show]
-    resources :feedbacks, only: [:show, :index]
+    resources :feedbacks, only: [:show, :index, :new, :create]
   end
 
   root 'old_salts#index'

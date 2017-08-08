@@ -1,0 +1,12 @@
+<%= form_for [@user, @feedback] do |f| %>
+
+  <%= render partial: 'shared/errors', locals: {resource: @feedback} %>
+
+  <div>
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments, required: :true %>
+  </div>
+
+  <%= f.submit 'Send' %>
+
+<% end %>
