@@ -1,0 +1,6 @@
+<h1>Hi <%= @appointment.old_salt.full_name %></h1>
+<p>
+  <%= @appointment.user.full_name %> sent you a request for <%= @appointment.request_type.titleize %>.
+</p>
+<h4>Request Note</h4>
+<p><%= @appointment.note %></p>

@@ -22,6 +22,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = current_user.appointments.build(appointment_params)
     if @appointment.save
+      AppointmentMailer.appointment_request_email(@appointment).deliver_later
       redirect_to user_appointments_path(current_user), notice: "Appointment request has been sent successfully"
     else
       render 'new'
