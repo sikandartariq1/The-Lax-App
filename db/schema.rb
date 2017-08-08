@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802072834) do
+ActiveRecord::Schema.define(version: 20170807105943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 20170802072834) do
     t.datetime "updated_at", null: false
     t.index ["old_salt_id"], name: "index_appointments_on_old_salt_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.text "comments"
+    t.bigint "user_id"
+    t.bigint "old_salt_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["old_salt_id"], name: "index_feedbacks_on_old_salt_id"
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
   create_table "old_salts", force: :cascade do |t|
@@ -120,4 +130,6 @@ ActiveRecord::Schema.define(version: 20170802072834) do
 
   add_foreign_key "appointments", "old_salts"
   add_foreign_key "appointments", "users"
+  add_foreign_key "feedbacks", "old_salts"
+  add_foreign_key "feedbacks", "users"
 end
