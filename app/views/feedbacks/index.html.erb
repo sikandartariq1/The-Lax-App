@@ -1,0 +1,17 @@
+<h1>Feedbacks</h1>
+
+<table class="table table-striped table-border">
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Comments</th>
+    <th>Action</th>
+  </tr>
+
+  <%= render @feedbacks %>
+
+</table>
+
+<hr>
+<%= paginate @feedbacks %>
+<%= page_entries_info @feedbacks %>
