@@ -1,0 +1,22 @@
+
+<div>
+  <strong>Name :</strong>
+  <%= @feedback.feedback_entity(current_entity).full_name %>
+</div>
+
+<% if old_salt_signed_in? %>
+  <div>
+    <strong>User Type :</strong>
+    <%= @feedback.feedback_user.user_type %>
+  </div>
+<% end %>
+
+<div>
+  <strong>Date :</strong>
+  <%= @feedback.created_at.strftime("%d-%m-%Y") %>
+</div>
+
+<div>
+  <strong>Comments :</strong>
+  <%= @feedback.comments %>
+</div>
