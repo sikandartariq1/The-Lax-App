@@ -14,4 +14,9 @@ class OldSalt < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def stripe_account?
+    stripe_account_id.present?
+  end
+
 end

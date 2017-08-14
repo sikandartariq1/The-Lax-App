@@ -1,0 +1,25 @@
+<% if current_old_salt.stripe_account? %>
+  <p>Your account is connected</p>
+  <%= link_to 'Edit Details', edit_old_salt_bank_account_path %><br>
+  <%= link_to 'Show Details', old_salt_bank_account_path %>
+<% else %>
+  <%= form_tag old_salt_bank_account_path do |f| %>
+    <%= render 'form' %>
+    <div>
+      <%= label_tag :social_security_number %><br>
+      <%= number_field_tag :social_security_number, nil, required: :true %>
+    </div>
+
+    <div>
+      <%= label_tag :routing_number %><br>
+      <%= number_field_tag :routing_number, nil, required: :true %>
+    </div>
+
+    <div>
+      <%= label_tag :account_number %><br>
+      <%= number_field_tag :account_number, nil, required: :true %>
+    </div>
+    <br>
+    <%= submit_tag 'Create Account' %>
+  <% end %>
+<% end %>

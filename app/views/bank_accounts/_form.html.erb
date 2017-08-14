@@ -1,0 +1,37 @@
+  <br>
+  <div>
+    <%= label_tag :first_name %><br>
+    <%= text_field_tag :first_name, set_legal_entity(@account, :first_name) %>
+  </div>
+
+  <div>
+    <%= label_tag :last_name %><br>
+    <%= text_field_tag :last_name, set_legal_entity(@account, :last_name) %>
+  </div>
+
+<% if @account %>
+  <div>
+    <%= label_tag :date_of_birth %><br>
+    <%= date_select :date_of_birth,:date_of_birth , start_year: 1980,
+                    selected: set_legal_entity(@account, :dob) %>
+  </div>
+<% else %>
+  <div>
+    <%= label_tag :date_of_birth %><br>
+    <%= date_select :date_of_birth,:date_of_birth , start_year: 1980 %>
+  </div>
+<% end %>
+
+  <div>
+    <%= label_tag :country %><br>
+    <%= select_tag :country,
+        options_for_select([["United States", "US"]], @account.try(:country)) %>
+  </div>
+
+  <div>
+    <%= label_tag :business_address %><br>
+    <%= number_field_tag :address_street, set_address(@account, :line1), placeholder: :street %>
+    <%= number_field_tag :address_zip, set_address(@account, :postal_code), placeholder: :zip %>
+    <%= text_field_tag :address_city, set_address(@account, :city), placeholder: :city %>
+    <%= text_field_tag :address_state, set_address(@account, :state), placeholder: :state %>
+  </div>
