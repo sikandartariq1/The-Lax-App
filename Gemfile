@@ -10,6 +10,7 @@ gem 'devise'
 gem 'devise_invitable', '~> 1.7.0'
 gem 'carrierwave', '~> 1.0'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'stripe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
@@ -44,6 +45,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
 end
 
 group :development do
