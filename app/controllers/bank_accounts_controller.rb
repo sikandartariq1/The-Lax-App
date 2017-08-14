@@ -1,5 +1,6 @@
 class BankAccountsController < ApplicationController
   before_action :authenticate_old_salt!
+  before_action :set_account, only: [:edit, :update]
 
   def new
   end
@@ -13,5 +14,25 @@ class BankAccountsController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+  end
+
+  def update
+    begin
+      StripeManagedAccount.new(params, current_old_salt, request.remote_ip).update_account
+      redirect_to old_salt_bank_account_path(current_old_salt), notice: 'Account Updated'
+    rescue => ex
+      flash.now[:errors] = ex.to_s
+      render 'edit'
+    end
+  end
+
+  private
+
+    def set_account
+      @account = StripeManagedAccount.new(params, current_old_salt, request.remote_ip).find_stripe_account
+      redirect_to new_old_salt_bank_account_path(current_old_salt), notice: 'Please create an account first' if @account.blank?
+    end
 
 end

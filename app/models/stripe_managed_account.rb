@@ -18,6 +18,20 @@ class StripeManagedAccount
     old_salt.update(stripe_account_id: account.id)
   end
 
+  def update_account
+    @account = find_stripe_account
+    dob
+    address
+    legal_name
+    account.save
+  end
+
+  def find_stripe_account
+    return unless old_salt.stripe_account?
+    Stripe::Account.retrieve(old_salt.stripe_account_id)
+  end
+
+
   private
 
     def stripe_account
