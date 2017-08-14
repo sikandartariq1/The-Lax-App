@@ -10,11 +10,13 @@ Rails.application.routes.draw do
     resources :appointments, only: [:index, :show, :new, :create, :edit]
     resources :feedbacks, only: [:show, :index]
     resource :bank_account, only: [:new, :create, :edit, :update, :show]
+    resources :payments, only: [:index]
   end
 
   resources :users, only: [:index, :show, :edit, :update] do
     resources :appointments, only: [:index, :show]
     resources :feedbacks, only: [:show, :index, :new, :create]
+    resources :payments, only: [:index]
   end
 
   root 'old_salts#index'

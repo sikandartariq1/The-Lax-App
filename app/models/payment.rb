@@ -8,4 +8,9 @@ class Payment < ApplicationRecord
     rejected: 2,
   }
 
+  def payment_entity(current_entity)
+    return payment_old_salt if current_entity.is_a? User
+    payment_user
+  end
+
 end
