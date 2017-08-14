@@ -9,6 +9,9 @@ class OldSalt < ApplicationRecord
   has_many :feedbacks
   has_many :feedback_users, through: :feedbacks
 
+  has_many :payments
+  has_many :payment_users, through: :payments
+
   validates :first_name, :last_name, presence: true
 
   def full_name

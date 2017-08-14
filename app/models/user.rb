@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :feedbacks
   has_many :feedback_old_salts, through: :feedbacks
 
+  has_many :payments
+  has_many :payment_old_salts, through: :payments
+
   mount_uploader :profile_picture, ProfilePictureUploader
   enum user_type: [:player, :coach]
 
