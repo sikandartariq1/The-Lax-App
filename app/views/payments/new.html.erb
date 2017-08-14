@@ -1,0 +1,12 @@
+<%= form_for [@user, @payment] do |f| %>
+
+  <%= render partial: 'shared/errors', locals: {resource: @payment} %>
+
+  <div>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount, required: :true %>
+  </div>
+
+  <%= f.submit 'Send' %>
+
+<% end %>

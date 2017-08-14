@@ -15,6 +15,7 @@
       <td><%= link_to 'view profile', user %></td>
       <% if old_salt_signed_in? %>
         <td><%= link_to 'Send Feedback', new_user_feedback_path(user) %></td>
+        <td><%= link_to 'Send Payment Request', new_user_payment_path(user) %></td>
       <% end %>
     </tr>
   <% end %>
