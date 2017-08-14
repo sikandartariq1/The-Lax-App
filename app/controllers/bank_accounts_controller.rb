@@ -1,6 +1,6 @@
 class BankAccountsController < ApplicationController
   before_action :authenticate_old_salt!
-  before_action :set_account, only: [:edit, :update]
+  before_action :set_account, only: [:edit, :update, :show]
 
   def new
   end
@@ -13,6 +13,9 @@ class BankAccountsController < ApplicationController
       flash.now[:errors] = ex.to_s
       render 'new'
     end
+  end
+
+  def show
   end
 
   def edit

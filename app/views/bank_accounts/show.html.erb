@@ -1,0 +1,35 @@
+<div>
+  <strong>First Name: </strong>
+  <%= @account.legal_entity.first_name %>
+</div>
+
+<div>
+  <strong>Last Name: </strong>
+  <%= @account.legal_entity.last_name %>
+</div>
+
+<div>
+  <strong>Date of Birth :</strong>
+  <%= @account.legal_entity.dob.day %> -
+  <%= @account.legal_entity.dob.month %> -
+  <%= @account.legal_entity.dob.year %>
+</div>
+
+<div>
+  <strong>Country : </strong>
+  <%= @account.country %>
+</div>
+
+<div>
+  <strong>Account Type : </strong>
+  <%= @account.legal_entity.type %>
+</div>
+
+
+<div>
+  <strong>Business Address :</strong><br>
+  Street: <%= @account.legal_entity.address.line1 %><br>
+  City: <%= @account.legal_entity.address.city %><br>
+  State: <%= @account.legal_entity.address.state %><br>
+  Zip: <%= @account.legal_entity.address.postal_code %>
+</div>
