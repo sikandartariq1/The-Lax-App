@@ -16,6 +16,7 @@ class PaymentsController < ApplicationController
   def create
     @payment = current_old_salt.payments.build(payment_params)
     if @payment.save
+      PaymentMailer.payment_request_email(@payment).deliver_later
       redirect_to current_old_salt, notice: "Payment request has been sent successfully"
     else
       render 'new'
