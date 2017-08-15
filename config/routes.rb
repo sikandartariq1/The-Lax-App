@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update] do
     resources :appointments, only: [:index, :show]
     resources :feedbacks, only: [:show, :index, :new, :create]
-    resources :payments, only: [:index, :new, :create]
+    resources :payments, only: [:index, :new, :create, :edit, :update] do
+      get 'update_status', on: :member
+    end
   end
 
   root 'old_salts#index'

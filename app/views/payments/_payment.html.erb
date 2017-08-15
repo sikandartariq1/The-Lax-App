@@ -3,4 +3,8 @@
   <td><%= payment.created_at.strftime("%m-%d-%Y") %></td>
   <td><%= payment.amount %></td>
   <td><%= payment.status %></td>
+  <% if user_signed_in? && payment.pending? %>
+    <td><%= link_to 'Accept', edit_user_payment_path(current_user,payment, status: :paid) %></td>
+    <td><%= link_to 'Reject', update_status_user_payment_path(current_user,payment, status: :rejected) %></td>
+  <% end %>
 </tr>

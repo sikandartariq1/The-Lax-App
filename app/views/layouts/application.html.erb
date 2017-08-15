@@ -3,18 +3,20 @@
   <head>
     <title>LaxApp</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
+    <%= stylesheet_link_tag :application, media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://js.stripe.com/v3/"></script>
+    <%= javascript_include_tag :application, 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-    <%= render 'devise/old_salts/links' %>
+    <%= render 'devise/menu/links' %>
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
-
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

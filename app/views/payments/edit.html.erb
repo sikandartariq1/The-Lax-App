@@ -1,0 +1,17 @@
+<%= form_tag user_payment_path(status: :paid), method: :patch, id: "payment-form" do |f| %>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="form-row">
+    <label for="card-element">
+      Credit or debit card
+    </label>
+    <div id="card-element">
+      <!-- a Stripe Element will be inserted here. -->
+    </div>
+
+    <!-- Used to display form errors -->
+    <div id="card-errors"></div>
+  </div>
+
+  <%= submit_tag 'Submit Payment' %>
+<% end %>
