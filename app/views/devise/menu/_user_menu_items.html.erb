@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <li class="nav-link"><a><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></a></li>
+  <li class="nav-link"><a><%= link_to 'View Profile', user_path(current_user) %></a></li>
+  <li class="nav-link"><a><%= link_to 'Appointments', user_appointments_path(current_user) %></a></li>
+  <li class="nav-link"><a><%= link_to 'Payments', user_payments_path(current_user) %></a></li>
+  <li class="nav-link"><a><%= link_to 'Feedbacks', user_feedbacks_path(current_user) %></a></li>
+  <li class="nav-link"><a><%= link_to('Logout', destroy_user_session_path, method: :delete) %></a></li>
+<% else %>
+  <% unless old_salt_signed_in? %>
+    <li class="nav-link"><a><%= link_to('Login as user', user_session_path) %></a></li>
+  <% end %>
+<% end %>

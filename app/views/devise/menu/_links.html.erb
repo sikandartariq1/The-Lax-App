@@ -1,0 +1,14 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/">The Lax App</a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <ul class="nav">
+      <li class="nav-link"><a><%= link_to 'Old Salts', old_salts_path %></a></li>
+      <li class="nav-link"><a><%= link_to 'Users', users_path %></a></li>
+        <%= render 'devise/menu/old_salt_menu_items' %>
+        <%= render 'devise/menu/user_menu_items' %>
+    </ul>
+  </div>
+</nav>
