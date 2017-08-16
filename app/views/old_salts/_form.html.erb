@@ -1,7 +1,7 @@
 <%= form_for current_old_salt do |f| %>
 
   <%= render 'errors' %>
-  <div><%= render_profile_picutre(current_old_salt) %></div>
+  <div><%= render_profile_picutre(current_old_salt, "100x100") %></div>
   <div><%= f.file_field :profile_picture, accept: 'iamge/jpeg' %></div>
   <div>
     <%= f.label "first Name" %>
