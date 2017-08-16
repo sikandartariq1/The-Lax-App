@@ -29,6 +29,7 @@ class PaymentsController < ApplicationController
   def update
     begin
       StripeCharge.new(params, @payment).create_charge
+      PaymentMailer.payment_sent_email(@payment).deliver_later
       redirect_to user_payments_path(current_user), notice: 'Payment sent successfully.'
     rescue => e
       flash.now[:error] = e.to_s
