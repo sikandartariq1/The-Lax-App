@@ -1,12 +1,28 @@
-<%= form_for [@user, @payment] do |f| %>
-
-  <%= render partial: 'shared/errors', locals: {resource: @payment} %>
-
-  <div>
-    <%= f.label :amount %><br>
-    <%= f.number_field :amount, required: :true %>
+<div class="content">
+  <div class="container-fluid">
+    <%= render partial: 'shared/errors', locals: {resource: @payment} %>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Payment Request</h4>
+          </div>
+          <div class="content">
+            <%= form_for [@user, @payment] do |f| %>
+              <div class="row">
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <%= f.label :amount %>
+                    <%= f.number_field :amount, required: :true, class: 'form-control' %>
+                  </div>
+                </div>
+              </div>
+              <%= f.submit 'Send', class: "btn btn-info btn-fill pull-right" %>
+              <div class="clearfix"></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <%= f.submit 'Send' %>
-
-<% end %>
+</div>

@@ -1,22 +1,43 @@
-
-<div>
-  <strong>Name :</strong>
-  <%= @feedback.feedback_entity(current_entity).full_name %>
-</div>
-
-<% if old_salt_signed_in? %>
-  <div>
-    <strong>User Type :</strong>
-    <%= @feedback.feedback_user.user_type %>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-11">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Bank Account</h4>
+            <p class="category">Details</p>
+          </div>
+          <div class="content">
+            <div class="row">
+              <div class="col-md-11 text-center">
+                <h3>
+                  <small>Name</small><br>
+                  <%= @feedback.feedback_entity(current_entity).full_name %>
+                  <% if old_salt_signed_in? %>
+                    <sub><%= @feedback.feedback_user.user_type %></sub>
+                  <% end %>
+                </h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-11 text-center">
+                <h3>
+                  <small>Date</small><br>
+                  <%= @feedback.created_at.strftime("%d-%m-%Y") %>
+                </h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-11 text-center">
+                <h3>
+                  <small>Comments</small><br>
+                  <%= @feedback.comments %>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<div>
-  <strong>Date :</strong>
-  <%= @feedback.created_at.strftime("%d-%m-%Y") %>
-</div>
-
-<div>
-  <strong>Comments :</strong>
-  <%= @feedback.comments %>
 </div>

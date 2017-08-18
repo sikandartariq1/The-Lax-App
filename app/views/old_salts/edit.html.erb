@@ -1,3 +1,44 @@
-<h1>Edit Profile</h1>
+<div class="content">
+  <div class="container-fluid">
+    <%= render partial: 'shared/errors', locals: {resource: @old_salt} %>
+    <div class="row">
 
-<%= render 'form' %>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Edit Profile</h4>
+          </div>
+          <div class="content">
+            <%= render 'form' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="image">
+            <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+          </div>
+          <div class="content">
+            <div class="author">
+              <a href="#">
+                <%= render_profile_picutre_with_class(@old_salt,'50x50' ,'avatar border-gray') %>
+                <h4 class="title"><%= @old_salt.full_name %><br />
+                  <small><%= @old_salt.email %></small>
+                </h4>
+              </a>
+            </div>
+            <hr>
+            <p class="description text-center">
+              <small>
+                Date of Birth: <%= @old_salt.date_of_birth %><br>
+                Phone No: <%= @old_salt.phone_no %>
+              </small>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

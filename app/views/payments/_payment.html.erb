@@ -1,10 +1,18 @@
 <tr>
   <td><%= payment.payment_entity(current_entity).full_name %></td>
   <td><%= payment.created_at.strftime("%m-%d-%Y") %></td>
-  <td><%= payment.amount %></td>
+  <td>$<%= payment.amount %></td>
   <td><%= payment.status %></td>
   <% if user_signed_in? && payment.pending? %>
-    <td><%= link_to 'Accept', edit_user_payment_path(current_user,payment, status: :paid) %></td>
-    <td><%= link_to 'Reject', update_status_user_payment_path(current_user,payment, status: :rejected) %></td>
+    <td>
+      <%= link_to 'Accept', edit_user_payment_path(current_user,payment, status: :paid) %> |
+      <%= link_to 'Reject', update_status_user_payment_path(current_user,payment, status: :rejected) %>
+    </td>
+  <% elsif user_signed_in? %>
+    <td>
+      <i>Accept</i> | <i>Reject</i>
+    </td>
+  <% else %>
+    <td>-</td>
   <% end %>
 </tr>

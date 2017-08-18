@@ -1,0 +1,33 @@
+<ul class="nav">
+  <li>
+    <%= link_to new_old_salt_bank_account_path(current_old_salt) do %>
+      <i class="pe-7s-note2"></i>
+      <p>Account</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to edit_old_salt_path(current_old_salt) do %>
+      <i class="pe-7s-user"></i>
+      <p>User Profile</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to old_salt_payments_path(current_old_salt) do %>
+      <i class="pe-7s-note2"></i>
+      <p>Payments</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to old_salt_appointments_path(current_old_salt) do %>
+      <i class="pe-7s-note2"></i>
+      <p>Appointments</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to old_salt_feedbacks_path(current_old_salt) do %>
+      <i class="pe-7s-note2"></i>
+      <p>Feedbacks</p>
+    <% end %>
+  </li>
+
+</ul>

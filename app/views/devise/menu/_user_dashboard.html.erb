@@ -1,0 +1,33 @@
+<ul class="nav">
+  <li>
+    <%= link_to user_path(current_user) do %>
+      <i class="pe-7s-user"></i>
+      <p>Profile</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to edit_user_registration_path(current_user) do %>
+      <i class="pe-7s-user"></i>
+      <p>Edit Profile</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to user_payments_path(current_user) do %>
+      <i class="pe-7s-note2"></i>
+      <p>Payments</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to user_appointments_path(current_user) do %>
+      <i class="pe-7s-note2"></i>
+      <p>Appointments</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to user_feedbacks_path(current_user) do %>
+      <i class="pe-7s-note2"></i>
+      <p>Feedbacks</p>
+    <% end %>
+  </li>
+
+</ul>

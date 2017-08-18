@@ -1,21 +1,32 @@
-<div><%= render_profile_picutre(@user, "100x100") %></div>
-
-<div>
-  <strong><%= @user.full_name %></strong>
-</div>
-<div>
-  <strong>User Type :</strong>
-  <%= @user.user_type %>
-</div>
-<div>
-  <strong>Date of Birth :</strong>
-  <%= @user.date_of_birth %>
-</div>
-<div>
-  <strong>Phone Number :</strong>
-  <%= @user.phone_no %>
-</div>
-<div>
-  <strong>Email :</strong>
-  <%= @user.email %>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="card card-user">
+          <div class="image">
+            <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=400&q=75&w=500" alt="..."/>
+          </div>
+          <div class="content">
+            <div class="author">
+              <a href="#">
+                <%= render_profile_picutre_with_class(@user, '100x100', 'avatar border-gray') %>
+                <h4 class="title"><%= @user.full_name %>
+                  <sub><%= @user.user_type %></sub><br>
+                  <small><%= @user.email %></small>
+                </h4>
+              </a>
+            </div>
+              <hr>
+              <p class="description text-center">
+                <small>
+                  Date of Birth: <%= @user.date_of_birth %><br>
+                  Phone No: <%= @user.phone_no %>
+                </small>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

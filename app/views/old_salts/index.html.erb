@@ -1,24 +1,40 @@
-<h1>Old-Salts</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th>Name</th>
-    <th>Email</th>
-  </tr>
-
-  <% @old_salts.each do |oldsalt| %>
-    <tr>
-      <td><%= render_profile_picutre(oldsalt, "50x50") %></td>
-      <td><%= oldsalt.full_name %></td>
-      <td><%= oldsalt.email %></td>
-      <td><%= link_to 'view profile', oldsalt %></td>
-      <% unless old_salt_signed_in? %>
-        <td><%= link_to 'Send Request', new_old_salt_appointment_path(oldsalt) %></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
-<hr>
-<%= paginate @old_salts %>
-<%= page_entries_info @old_salts %>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Old Salts</h4>
+            <p class="category">Profiles</p>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+              <thead>
+                <th></th>
+                <th>Name</th>
+                <th>Email</th>
+              </thead>
+              <tbody>
+                <% @old_salts.each do |oldsalt| %>
+                  <tr>
+                    <td><%= render_profile_picutre(oldsalt, "30x30") %></td>
+                    <td><%= oldsalt.full_name %></td>
+                    <td><%= oldsalt.email %></td>
+                    <td><%= link_to 'view profile', oldsalt %></td>
+                    <% unless old_salt_signed_in? %>
+                      <td><%= link_to 'Send Request', new_old_salt_appointment_path(oldsalt) %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="pull-right text-info">
+            <%= paginate @old_salts %>
+            <%= page_entries_info @old_salts %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

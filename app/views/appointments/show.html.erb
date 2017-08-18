@@ -1,46 +1,91 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-11">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Bank Account</h4>
+            <p class="category">Details</p>
+          </div>
+          <div class="content">
+            <% if user_signed_in? %>
+              <div class="row">
+                <div class="col-md-11 text-center">
+                  <h3>
+                    <small>Name</small><br>
+                    <%= @appointment.old_salt.full_name %>
+                  </h3>
+                </div>
+              </div>
+            <%elsif old_salt_signed_in? %>
+              <div class="row">
+                <div class="col-md-11 text-center">
+                  <h3>
+                    <small>User Name</small><br>
+                    <%= @appointment.user.full_name %>
+                    <sub><%= @appointment.user.user_type %></sub>
+                  </h3>
+                </div>
+              </div>
+            <% end %>
 
-<% if user_signed_in? %>
-  <div>
-    <strong>Name :</strong>
-    <%= @appointment.old_salt.full_name %>
+            <div class="row">
+              <div class="col-md-11 text-center">
+                <h3>
+                  <small>Date</small><br>
+                    <%= @appointment.requested_date %>
+                </h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-11 text-center">
+                <h3>
+                  <small>Time</small><br>
+                    <%= @appointment.requested_time.strftime("%H:%M") %>
+                 </h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-11 text-center">
+                <h3>
+                  <small>Location</small><br>
+                    <%= @appointment.location %>
+                 </h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-11 text-center">
+                <h3>
+                  <small>Status</small><br>
+                    <%= @appointment.status %>
+                 </h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-11 text-center">
+                <h3>
+                  <small>Type</small><br>
+                    <%= @appointment.request_type.titleize %>
+                 </h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-11 text-center">
+                <h3>
+                  <small>Request Note</small><br>
+                    <%= @appointment.note %>
+                 </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<%elsif old_salt_signed_in? %>
-  <div>
-  <strong>User Name :</strong>
-    <%= @appointment.user.full_name %>
-  </div>
-  <div>
-  <strong>User Type :</strong>
-    <%= @appointment.user.user_type %>
-  </div>
-<% end %>
-
-<div>
-  <strong>Date :</strong>
-  <%= @appointment.requested_date %>
 </div>
 
-<div>
-  <strong>Time :</strong>
-  <%= @appointment.requested_time.strftime("%H:%M") %>
-</div>
-
-<div>
-  <strong>Location :</strong>
-  <%= @appointment.location %>
-</div>
-
-<div>
-  <strong>Status :</strong>
-  <%= @appointment.status %>
-</div>
-
-<div>
-  <strong>Type :</strong>
-  <%= @appointment.request_type.titleize %>
-</div>
-
-<div>
-  <strong>Request Note :</strong>
-  <%= @appointment.note %>
-</div>

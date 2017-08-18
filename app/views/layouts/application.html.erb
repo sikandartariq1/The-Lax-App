@@ -10,13 +10,21 @@
   </head>
 
   <body>
-
-    <%= render 'devise/menu/links' %>
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
-    <div class="container">
-      <%= yield %>
+    <div class="wrapper">
+      <% if old_salt_signed_in? || user_signed_in? %>
+        <%= render 'devise/menu/dashboard' %>
+        <div class="main-panel">
+      <% end %>
+        <%= render 'devise/menu/menu_bar' %>
+        <% flash.each do |name, msg| -%>
+          <% if name == 'notice' %>
+            <%= content_tag :div, msg, class: 'alert alert-success' %>
+          <% else %>
+            <%= content_tag :div, msg, class: 'alert alert-danger' %>
+          <% end %>
+        <% end -%>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

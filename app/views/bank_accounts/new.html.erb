@@ -1,25 +1,54 @@
-<% if current_old_salt.stripe_account? %>
-  <p>Your account is connected</p>
-  <%= link_to 'Edit Details', edit_old_salt_bank_account_path %><br>
-  <%= link_to 'Show Details', old_salt_bank_account_path %>
-<% else %>
-  <%= form_tag old_salt_bank_account_path do |f| %>
-    <%= render 'form' %>
-    <div>
-      <%= label_tag :social_security_number %><br>
-      <%= number_field_tag :social_security_number, nil, required: :true %>
-    </div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-11">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Bank Account</h4>
+            <p class="category">Details</p>
+          </div>
+          <div class="content">
 
-    <div>
-      <%= label_tag :routing_number %><br>
-      <%= number_field_tag :routing_number, nil, required: :true %>
-    </div>
+            <% if current_old_salt.stripe_account? %>
+              <p>Your account is connected</p>
+              <%= link_to 'Edit Details', edit_old_salt_bank_account_path,
+                          class: 'btn btn-warning bg-warning btn-fill' %>
+              <%= link_to 'Show Details', old_salt_bank_account_path,
+                          class: 'btn btn-success btn-fill' %>
+            <% else %>
+              <%= form_tag old_salt_bank_account_path do |f| %>
+                <%= render 'form' %>
 
-    <div>
-      <%= label_tag :account_number %><br>
-      <%= number_field_tag :account_number, nil, required: :true %>
+                <div class="row">
+                  <div class="col-md-6">
+                    <%= label_tag :social_security_number %><br>
+                    <%= number_field_tag :social_security_number, nil, required: :true,
+                                          class: "form-control" %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= label_tag :account_number %><br>
+                      <%= number_field_tag :account_number, nil, required: :true,
+                                            class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= label_tag :routing_number %><br>
+                      <%= number_field_tag :routing_number, nil, required: :true,
+                                            class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <%= submit_tag 'Create Account', class: "btn btn-info btn-fill pull-right" %>
+                <div class="clearfix"></div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-    <br>
-    <%= submit_tag 'Create Account' %>
-  <% end %>
-<% end %>
+  </div>
+</div>

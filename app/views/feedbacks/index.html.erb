@@ -1,17 +1,33 @@
-<h1>Feedbacks</h1>
-
-<table class="table table-striped table-border">
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Comments</th>
-    <th>Action</th>
-  </tr>
-
-  <%= render @feedbacks %>
-
-</table>
-
-<hr>
-<%= paginate @feedbacks %>
-<%= page_entries_info @feedbacks %>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Appointment</h4>
+            <p class="category">Requests</p>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <table class="table table-striped table-border">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>Comments</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @feedbacks %>
+              </tbody>
+            </table>
+          </div>
+          <div class="pull-right text-info">
+            <%= paginate @feedbacks %>
+            <%= page_entries_info @feedbacks %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

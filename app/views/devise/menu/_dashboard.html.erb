@@ -1,0 +1,15 @@
+<%= content_tag :div, class: "sidebar", 'data-color': 'purple',
+                'data-image': image_path('sidebar-5.jpg') do -%>
+  <div class="sidebar-wrapper">
+    <div class="logo">
+      <a href="/" class="simple-text">
+        The Lax App
+      </a>
+    </div>
+    <% if old_salt_signed_in? %>
+      <%= render 'devise/menu/old_salt_dashboard' %>
+    <% elsif user_signed_in? %>
+      <%= render 'devise/menu/user_dashboard' %>
+    <% end %>
+  </div>
+<% end -%>

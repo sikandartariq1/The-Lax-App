@@ -1,6 +1,25 @@
-
-<% if user_signed_in? %>
-  <%= render 'user_appointments'%>
-<% else %>
-  <%= render 'old_salt_appointments'%>
-<% end %>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Appointment</h4>
+            <p class="category">Requests</p>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <% if user_signed_in? %>
+              <%= render 'user_appointments'%>
+            <% else %>
+              <%= render 'old_salt_appointments'%>
+            <% end %>
+          </div>
+          <div class="pull-right text-info">
+            <%= paginate @appointments %>
+            <%= page_entries_info @appointments %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

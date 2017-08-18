@@ -1,37 +1,70 @@
-  <br>
-  <div>
-    <%= label_tag :first_name %><br>
-    <%= text_field_tag :first_name, set_legal_entity(@account, :first_name) %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name, set_legal_entity(@account, :first_name), class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= label_tag :last_name %><br>
-    <%= text_field_tag :last_name, set_legal_entity(@account, :last_name) %>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name, set_legal_entity(@account, :last_name), class: "form-control" %>
+    </div>
   </div>
+</div>
 
-<% if @account %>
-  <div>
-    <%= label_tag :date_of_birth %><br>
-    <%= date_select :date_of_birth,:date_of_birth , start_year: 1980,
-                    selected: set_legal_entity(@account, :dob) %>
+<div class="row">
+  <div class="col-md-6">
+    <% if @account %>
+      <div class="form-group">
+        <%= label_tag :date_of_birth %>
+        <%= date_select :date_of_birth,:date_of_birth , start_year: 1980,
+                        selected: set_legal_entity(@account, :dob), class: "form-control" %>
+      </div>
+    <% else %>
+      <div class="form-group">
+        <%= label_tag :date_of_birth %>
+        <%= date_select :date_of_birth,:date_of_birth , start_year: 1980, class: "form-control" %>
+      </div>
+    <% end %>
   </div>
-<% else %>
-  <div>
-    <%= label_tag :date_of_birth %><br>
-    <%= date_select :date_of_birth,:date_of_birth , start_year: 1980 %>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag :country %>
+      <%= select_tag :country,
+          options_for_select([["United States", "US"]], @account.try(:country)), calss: "form-control" %>
+    </div>
   </div>
-<% end %>
+</div>
 
-  <div>
-    <%= label_tag :country %><br>
-    <%= select_tag :country,
-        options_for_select([["United States", "US"]], @account.try(:country)) %>
-  </div>
+<%= label_tag :business_address %>
+<div class="row">
+  <div class="col-md-6">
+      <div class="form-group">
+        <%= label_tag :address_street, :street %>
 
-  <div>
-    <%= label_tag :business_address %><br>
-    <%= number_field_tag :address_street, set_address(@account, :line1), placeholder: :street %>
-    <%= number_field_tag :address_zip, set_address(@account, :postal_code), placeholder: :zip %>
-    <%= text_field_tag :address_city, set_address(@account, :city), placeholder: :city %>
-    <%= text_field_tag :address_state, set_address(@account, :state), placeholder: :state %>
+          <%= number_field_tag :address_street, set_address(@account, :line1), class: "form-control" %>
+      </div>
   </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag :address_zip, :zip %>
+      <%= number_field_tag :address_zip, set_address(@account, :postal_code), class: "form-control" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag :address_city, :city %>
+      <%= text_field_tag :address_city, set_address(@account, :city), class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag :address_state, :state %>
+      <%= text_field_tag :address_state, set_address(@account, :state), class: "form-control" %>
+    </div>
+  </div>
+</div>

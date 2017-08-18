@@ -1,25 +1,43 @@
-<h1>General Users</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th>Name</th>
-    <th>Email</th>
-  </tr>
-
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= render_profile_picutre(user, "50x50") %></td>
-      <td><%= user.full_name %></td>
-      <td><%= user.email %></td>
-      <td><%= link_to 'view profile', user %></td>
-      <% if old_salt_signed_in? %>
-        <td><%= link_to 'Send Feedback', new_user_feedback_path(user) %></td>
-        <td><%= link_to 'Send Payment Request', new_user_payment_path(user) %></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
-<hr>
-<%= paginate @users %>
-<%= page_entries_info @users %>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">User</h4>
+            <p class="category">Profiles</p>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td><%= render_profile_picutre(user, "50x50") %></td>
+                    <td><%= user.full_name %></td>
+                    <td><%= user.email %></td>
+                    <td><%= link_to 'view profile', user %></td>
+                    <% if old_salt_signed_in? %>
+                      <td><%= link_to 'Send Feedback', new_user_feedback_path(user) %></td>
+                      <td><%= link_to 'Send Payment Request', new_user_payment_path(user) %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="pull-right text-info">
+            <%= paginate @users %>
+            <%= page_entries_info @users %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

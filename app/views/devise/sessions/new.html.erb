@@ -1,0 +1,18 @@
+
+
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="btn-group" role="group" aria-label="...">
+    <%= link_to 'Old Salt', old_salt_session_path, class: "btn btn-default" %>
+    <%= link_to 'User', user_session_path, class: "btn btn-default" %>
+  </div>
+</div>
+<br>
+
+<%= render "users/sessions/user_new" %>
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="btn-group" role="group" aria-label="...">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

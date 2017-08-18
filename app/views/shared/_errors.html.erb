@@ -1,9 +1,9 @@
 
 <% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2>
+  <div class="alert alert-danger" id="error_explanation">
+    <h2 class="alert-heading">
       <%= pluralize(resource.errors.count, "error") %> prohibited
-      oppointment request from being saved:
+      request from being saved:
     </h2>
     <ul>
       <% resource.errors.full_messages.each do |msg| %>
