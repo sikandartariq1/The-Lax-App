@@ -15,13 +15,13 @@ class OldSaltsController < ApplicationController
   def update
     @old_salt = current_old_salt
     if @old_salt.update(old_salt_params)
-      redirect_to @old_salt
+      redirect_to @old_salt, notice: "changings have been saved."
     else
       render 'edit'
     end
   end
   private
   def old_salt_params
-    params.require(:old_salt).permit(:first_name, :last_name, :phone_no, :profile_picture)
+    params.require(:old_salt).permit(:first_name, :last_name, :phone_no, :profile_picture, :date_of_birth)
   end
 end
