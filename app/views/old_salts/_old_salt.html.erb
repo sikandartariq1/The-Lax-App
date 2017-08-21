@@ -1,0 +1,11 @@
+<tr>
+  <td><%= render_profile_picutre(old_salt, "30x30") %></td>
+  <td><%= old_salt.full_name %></td>
+  <td><%= old_salt.email %></td>
+  <td>
+    <%= link_to 'Profile', old_salt %>
+    <% unless old_salt_signed_in? %>
+      | <%= link_to 'Send Request', new_old_salt_appointment_path(old_salt) %>
+    <% end %>
+  </td>
+</tr>

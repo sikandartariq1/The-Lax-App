@@ -14,21 +14,11 @@
                   <th></th>
                   <th>Name</th>
                   <th>Email</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <% @users.each do |user| %>
-                  <tr>
-                    <td><%= render_profile_picutre(user, "50x50") %></td>
-                    <td><%= user.full_name %></td>
-                    <td><%= user.email %></td>
-                    <td><%= link_to 'view profile', user %></td>
-                    <% if old_salt_signed_in? %>
-                      <td><%= link_to 'Send Feedback', new_user_feedback_path(user) %></td>
-                      <td><%= link_to 'Send Payment Request', new_user_payment_path(user) %></td>
-                    <% end %>
-                  </tr>
-                <% end %>
+                <%= render @users %>
               </tbody>
             </table>
           </div>

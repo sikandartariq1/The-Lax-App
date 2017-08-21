@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="header">
-            <h4 class="title">Old Salts</h4>
+            <h4 class="title">Old Salt</h4>
             <p class="category">Profiles</p>
           </div>
           <div class="content table-responsive table-full-width">
@@ -13,19 +13,10 @@
                 <th></th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Action</th>
               </thead>
               <tbody>
-                <% @old_salts.each do |oldsalt| %>
-                  <tr>
-                    <td><%= render_profile_picutre(oldsalt, "30x30") %></td>
-                    <td><%= oldsalt.full_name %></td>
-                    <td><%= oldsalt.email %></td>
-                    <td><%= link_to 'view profile', oldsalt %></td>
-                    <% unless old_salt_signed_in? %>
-                      <td><%= link_to 'Send Request', new_old_salt_appointment_path(oldsalt) %></td>
-                    <% end %>
-                  </tr>
-                <% end %>
+                <%= render @old_salts %>
               </tbody>
             </table>
           </div>

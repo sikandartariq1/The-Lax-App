@@ -1,0 +1,10 @@
+<tr>
+  <td><%= render_profile_picutre(user, "50x50") %></td>
+  <td><%= user.full_name %></td>
+  <td><%= user.email %></td>
+  <td>
+    <%= link_to 'Profile', user %> |
+    <%= link_to 'Send Feedback', new_user_feedback_path(user) %> |
+    <%= link_to 'Request Payment', new_user_payment_path(user) %>
+  </td>
+</tr>
