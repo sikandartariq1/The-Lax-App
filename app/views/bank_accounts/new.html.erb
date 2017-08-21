@@ -12,9 +12,9 @@
             <% if current_old_salt.stripe_account? %>
               <p>Your account is connected</p>
               <%= link_to 'Edit Details', edit_old_salt_bank_account_path,
-                          class: 'btn btn-warning bg-warning btn-fill' %>
+                          class: 'btn btn-fill' %>
               <%= link_to 'Show Details', old_salt_bank_account_path,
-                          class: 'btn btn-success btn-fill' %>
+                          class: 'btn btn-fill' %>
             <% else %>
               <%= form_tag old_salt_bank_account_path do |f| %>
                 <%= render 'form' %>
