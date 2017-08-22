@@ -1,6 +1,9 @@
 class User < ApplicationRecord
+  SOCIAL_SITES = [:facebook, :google_oauth2, :twitter]
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: SOCIAL_SITES
 
   validates :first_name, :last_name, :phone_no, presence: true
 
@@ -19,4 +22,16 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}".titleize
   end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
+
+  def self.social_sites
+    SOCIAL_SITES
+  end
+
 end

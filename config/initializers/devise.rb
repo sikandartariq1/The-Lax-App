@@ -14,6 +14,10 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'The Lax App'
 
+  config.omniauth :facebook,      ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
+  config.omniauth :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET']
+  config.omniauth :twitter,       ENV['TWITTER_ID'], ENV['TWITTER_SECRET']
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
