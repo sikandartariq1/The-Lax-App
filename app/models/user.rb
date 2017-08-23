@@ -24,14 +24,19 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-    end
+    user = find_by_provider_and_uid(auth.provider, auth.uid)
+    user || create_user(auth, user)
   end
 
   def self.social_sites
     SOCIAL_SITES
   end
 
+  def self.create_user(auth, user)
+    unless user || find_by_email(auth.info.email).present?
+      user = new(provider: auth.provider, uid: auth.uid,
+                  email: auth.info.email, password: Devise.friendly_token[0,20])
+      user if user.save(validate: false)
+    end
+  end
 end
