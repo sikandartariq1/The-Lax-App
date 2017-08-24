@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :payments, only: [:index]
   end
 
+  as :user do
+    get "user/edit_profile", to: "registrations#edit"
+  end
+
   resources :users, only: [:index, :show, :edit, :update] do
     resources :appointments, only: [:index, :show]
     resources :feedbacks, only: [:show, :index, :new, :create]
@@ -21,6 +25,5 @@ Rails.application.routes.draw do
       get 'update_status', on: :member
     end
   end
-
   root 'old_salts#index'
 end
